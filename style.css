@@ -1,0 +1,167 @@
+:root {
+    --azure-deep: #3b82f6;
+    --azure-soft: #e0f0ff;
+    --text-navy: #1e3a8a;
+    --glass: rgba(255, 255, 255, 0.85);
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif; 
+    color: var(--text-navy);
+    min-height: 100vh;
+    background-image: url('background.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.app-container {
+    max-width: 1900px;
+    width: 92%;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.navbar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 70px; 
+}
+.brand-group { display: flex; flex-direction: column; gap: 8px; }
+.brand { display: flex; align-items: center; gap: 18px; }
+.planet-icon { width: 45px; height: 45px; color: var(--azure-deep); }
+.logo-text { font-size: 3.3rem; font-weight: 800; color: white; text-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+.logo-text span { color: var(--azure-soft); }
+.brand-description { font-size: 1.9rem; color: white; margin: 0; font-weight: 700; text-shadow: 0 2px 10px rgba(0,0,0,0.5); ; background: rgba(255,255,255,0.2); padding: 8px 15px; border-radius: 20px; backdrop-filter: blur(5px); }
+.engine-info { font-size: 1.3rem; font-weight: 700; color: white; background: rgba(255,255,255,0.2); padding: 8px 15px; border-radius: 20px; backdrop-filter: blur(5px); }
+
+.grid-layout { 
+    display: grid; 
+    grid-template-columns: 500px 1fr; 
+    gap: 50px; 
+    align-items: start; 
+}
+
+.glass-panel {
+    background: var(--glass);
+    backdrop-filter: blur(25px);
+    border-radius: 45px;
+    padding: 65px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
+    height: auto; 
+}
+
+.label { font-size: 1.2rem; font-weight: 800; color: var(--azure-deep); text-transform: uppercase; letter-spacing: 3px; }
+h2 { font-size: 2.4rem; font-weight: 800; margin: 15px 0 15px; letter-spacing: -1px; }
+.panel-desc { font-size: 1.4rem; opacity: 0.9; margin-bottom: 40px; line-height: 1.6; }
+
+
+.input-wrapper {
+    position: relative; 
+    width: 100%;
+}
+
+input[type="text"] {
+    width: 100%; 
+    background: transparent; 
+    border: none; 
+    border-bottom: 3px solid rgba(30, 58, 138, 0.1);
+    padding: 25px 0; 
+    font-size: 1.6rem; 
+    font-family: inherit; 
+    font-weight: 600;
+    color: var(--text-navy); 
+    transition: 0.3s;
+    box-sizing: border-box; 
+}
+
+input:focus { outline: none; }
+
+.focus-border { 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 0; 
+    height: 3px; 
+    background: var(--azure-deep); 
+    transition: 0.4s ease; 
+}
+
+input:focus ~ .focus-border { 
+    width: 100%; 
+}
+
+.azure-button {
+    width: 100%; 
+    padding: 28px; 
+    background: var(--azure-deep); 
+    color: white;
+    border: none; 
+    border-radius: 25px; 
+    font-weight: 800; 
+    font-size: 1.3rem; 
+    cursor: pointer;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 15px; 
+    transition: 0.3s all; 
+    margin-top: 45px;
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3);
+}
+.azure-button:hover { transform: translateY(-5px); box-shadow: 0 20px 45px rgba(59, 130, 246, 0.4); }
+
+
+.keyword-tags {
+    margin-top: 50px;
+    display: flex;
+    gap: 20px; 
+    justify-content: center;
+}
+
+.keyword-tags span {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--azure-deep); 
+    background: transparent; 
+    padding: 0;
+    border: none; 
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.keyword-tags span::before {
+    content: "•";
+    margin-right: 10px;
+    font-size: 1.5rem;
+    color: var(--azure-deep);
+    vertical-align: middle;
+}
+
+
+.result-view { 
+    line-height: 2; 
+    color: #2d3748; 
+    font-size: 1.4rem; 
+}
+.empty-view { 
+    text-align: center; 
+    opacity: 0.7; 
+    font-style: italic; 
+    padding: 100px 0; 
+}
+
+.loading-state { display: none; margin-top: 50px; }
+.progress-track { width: 100%; height: 6px; background: var(--azure-soft); border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
+.progress-fill { width: 40%; height: 100%; background: var(--azure-deep); animation: slide 1.2s infinite linear; }
+@keyframes slide { from { transform: translateX(-100%); } to { transform: translateX(300%); } }
+
+@media (max-width: 1100px) { 
+    .grid-layout { grid-template-columns: 1fr; } 
+    .app-container { width: 95%; }
+}
